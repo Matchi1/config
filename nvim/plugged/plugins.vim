@@ -7,6 +7,8 @@ endif
 call plug#begin('~/.config/nvim/plugged')
 
     Plug 'junegunn/goyo.vim'
+    Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+    Plug 'junegunn/fzf.vim'
 
 	Plug 'psliwka/vim-smoothie'
 
@@ -33,4 +35,9 @@ call plug#begin('~/.config/nvim/plugged')
 	" Color Scheme
 	Plug 'morhetz/gruvbox'
 
+	" Color Scheme
+	Plug 'aserowy/tmux.nvim'
+
+	" Clang-format
+	Plug 'rhysd/vim-clang-format'
 call plug#end()

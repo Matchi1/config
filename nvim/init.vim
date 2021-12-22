@@ -10,6 +10,7 @@ filetype plugin on
 syntax on
 set encoding=utf-8
 set number relativenumber
+set expandtab
 set tabstop=4 shiftwidth=4
 
 colorscheme gruvbox
@@ -47,7 +48,7 @@ set splitbelow splitright
 set laststatus=2
 set noshowmode
 
-" Mapping key
+" Global Mapping key
 
 map <C-H> gT
 map <C-L> gt
@@ -55,6 +56,12 @@ map <leader>r :%s/\s\+$//<CR>
 map <leader>tab :TableModeRealign<CR>
 map <leader>tme :TableModeEnable<CR>
 set pastetoggle=<F3>
+
+" Normal mode Mapping key
+
+nmap <leader>cft :ClangFormat<CR>
+nmap <leader>fb :Files ~/workspace/build<CR>
+nmap <leader>ff :Files .<CR>
 
 let g:vimwiki_list = [{
 			\ 'path': '~/vimwiki',
