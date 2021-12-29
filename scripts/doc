@@ -1,0 +1,15 @@
+#!/usr/bin/bash
+
+echo "Please select a template from the list below"
+files=(~/template/*)
+for ((i=0; i<${#files[@]}; i++)); do
+    echo "$i : ${files[$i]}"
+done
+
+read index
+
+for f in $(ls ${files[$index]})
+do
+    echo "copying '$f' into current directory"
+    cp ${files[$index]}/$f .
+done
