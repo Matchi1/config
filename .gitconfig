@@ -1,0 +1,13 @@
+[user]
+	email = mathieu.chan@qarnot-computing.com
+	name = Mathieu Chan
+[core]
+	editor = nvim
+[diff]
+	tool = vimdiff
+[merge]
+	tool = vimdiff
+[difftool]
+	prompt = false
+[alias]
+	d = difftool
