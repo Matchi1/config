@@ -61,6 +61,8 @@ map <C-L> gt
 map <leader>r :%s/\s\+$//<CR>
 map <leader>tab :TableModeRealign<CR>
 map <leader>tme :TableModeEnable<CR>
+map <leader>do :DiffviewOpen<CR>
+map <leader>dc :DiffviewClose<CR>
 map <leader><C-E> :Vifm<CR>
 map <C-N> :tabnew<CR>
 set pastetoggle=<F3>
