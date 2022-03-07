@@ -1,0 +1,11 @@
+#!/usr/bin/bash
+
+KEYS_PATH=~/.ssh/
+
+# TODO: add timeout selection menu with default value
+
+for f in $(find $KEYS_PATH -name "id*" ! -name '*.pub')
+do
+    echo "Adding '$f' to the bunch of keys" 
+    ssh-add -t 14400 $f
+done
