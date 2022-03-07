@@ -29,7 +29,7 @@ end
 alias gs='git status'
 alias gf='git fetch'
 
-# turn on/off nigh mode
+# turn on/off night mode
 
 alias night-mode='runscript night-mode'
 
@@ -42,13 +42,13 @@ alias gdb='gdb-multiarch $ELF_PATH'
 
 # Workflow
 ## Gateway-iot
-
-alias gatesave='git add -u && git commit && git rebase -i HEAD~3 && git push \
-origin +HEAD && git log'
+alias gatesave='git add -u && git commit --amend && git log'
 
 ## Config tracking
-
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
+
+## fzf + bat
+alias FZF="fzf --preview 'bat {-1} --color=always'"
 
 # Help section
 
