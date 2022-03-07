@@ -1,0 +1,72 @@
+alias dfu-compile='make \
+&& python3 ../../tools/gen-image.py ../../bootloader/obj/bootloader.bin obj/qmate-usb.bin \
+&& dfu-suffix -v 1d50 -p 607f -a qmate.bin \
+&& ~/dfu-util/src/dfu-util -a 0 -D qmate.bin -s 0x8000000:leave \
+&& rm -vf qmate.bin'
+
+alias qio-compile='make -C projects/proto/qio-r3 \
+&& make -C projects/proto/qio-r3 flash'
+
+# some more ls aliases
+alias ll='ls -alF'
+alias la='ls -A'
+alias l='ls -CF'
+
+# multi-monitor
+alias dual='xrandr --output eDP-1 --primary --left-of HDMI-2 --output HDMI-2 \
+--auto && xrandr --output HDMI-2 --mode 3840x2160'
+alias single='xrandr --output HDMI-2 --off'
+
+# ctags
+alias ctags='~/ctags/ctags'
+
+# Git related
+## show files in multiple commit
+
+function gshow
+    git show --name-only HEAD~$argv[1]..HEAD
+end
+alias gs='git status'
+alias gf='git fetch'
+
+# turn on/off nigh mode
+
+alias night-mode='runscript night-mode'
+
+alias discord='~/Discord/Discord'
+
+# Debugging
+
+export ELF_PATH='obj/tester.elf'
+alias gdb='gdb-multiarch $ELF_PATH'
+
+# Workflow
+## Gateway-iot
+
+alias gatesave='git add -u && git commit && git rebase -i HEAD~3 && git push \
+origin +HEAD && git log'
+
+## Config tracking
+
+alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
+
+# Help section
+
+function help_cmd
+    echo 'dfu-compile              : Compile Qmate USB firmware'
+    echo 'gdb [elf_path]           : Execute debugging on the specified elf path file'
+    echo 'gshow [integer]          : Execute "git show" from HEAD to the specified HEAD'
+    echo 'gf                       : Execute "git fetch"'
+    echo 'gs                       : Execute "git status"'
+    echo 'night-mode [off]         : Enter night mode'
+    echo 'runscript [name_script]  : Run script'
+    echo 'qrpc_send [json]         : Send request to qrpc with the given json file'
+end
+
+function export_list
+    echo '$QRAD       : Qrad id'
+    echo '$QRAD_USER  : Username for Qrad'
+    echo '$QRAD_PW    : Password for Qrad'
+    echo '$QRAD       : Compile Qmate USB firmware'
+    echo '$ELF_PATH   : elf file path for gdb debugger'
+end
