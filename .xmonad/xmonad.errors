@@ -1,0 +1,7 @@
+
+xmonad.hs:35:14: warning: [-Wtabs]
+    Tab character found here, and in five further locations.
+    Please use spaces instead.
+   |
+35 | myLockScreen    = "i3lock --nofork --image ~/wallpaper/sunshine_forest.png --tiling --ignore-empty-password --show-failed-attempts"
+   |              ^^^
