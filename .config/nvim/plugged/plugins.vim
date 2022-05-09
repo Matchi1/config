@@ -2,7 +2,7 @@ if empty(glob('~/.config/nvim/autoload/plug.vim'))
   silent !curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs
     \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
   " autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
-endif		
+endif
 
 call plug#begin('~/.config/nvim/plugged')
 
@@ -13,13 +13,13 @@ call plug#begin('~/.config/nvim/plugged')
 	Plug 'psliwka/vim-smoothie'
 
 	Plug 'vimwiki/vimwiki'
-	
+
 	Plug 'itchyny/lightline.vim'
 
 	Plug 'jiangmiao/auto-pairs'
 
-	Plug 'tpope/vim-surround' 
-	
+	Plug 'tpope/vim-surround'
+
 	" Auto Completion (see if necessary)
 	Plug 'ackyshake/VimCompletesMe'
 
@@ -44,11 +44,21 @@ call plug#begin('~/.config/nvim/plugged')
     " File Explorer
     Plug 'vifm/vifm.vim'
 
-    " Vgit
     Plug 'nvim-lua/plenary.nvim'
-    Plug 'kyazdani42/nvim-web-devicons'
-    Plug 'tanvirtin/vgit.nvim'
+
+    Plug 'airblade/vim-gitgutter'
 
     " Vim diff
     Plug 'sindrets/diffview.nvim'
+
+    Plug 'mattn/calendar-vim'
+
+    " python formatter
+    Plug 'averms/black-nvim', {'do': ':UpdateRemotePlugins'}
+
+    Plug 'folke/todo-comments.nvim'
+    Plug 'folke/trouble.nvim'
+
+    Plug 'ThePrimeagen/refactoring.nvim'
+    Plug 'nvim-treesitter/nvim-treesitter'
 call plug#end()
