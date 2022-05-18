@@ -55,10 +55,15 @@ call plug#begin('~/.config/nvim/plugged')
 
     " python formatter
     Plug 'averms/black-nvim', {'do': ':UpdateRemotePlugins'}
+    Plug 'python/black'
 
     Plug 'folke/todo-comments.nvim'
     Plug 'folke/trouble.nvim'
 
     Plug 'ThePrimeagen/refactoring.nvim'
     Plug 'nvim-treesitter/nvim-treesitter'
+    Plug 'Chiel92/vim-autoformat'
+
+    Plug 'tpope/vim-fugitive'
+    Plug 'benwainwright/fzf-project'
 call plug#end()

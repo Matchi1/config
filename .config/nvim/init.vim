@@ -106,6 +106,16 @@ set splitbelow splitright
 set laststatus=2
 set noshowmode
 
+" Black config
+let g:black_linelength = 80
+
+" fzf project settings
+ 
+let g:fzfSwitchProjectWorkspaces = [ '~/workspace/' ]
+
+let g:fzfSwitchProjectProjects = [ '~/.config/nvim/', '~/.config/fish/' ]
+ 
+ 
 " Global Mapping key
 
 map <C-H> gT
@@ -124,8 +134,8 @@ set pastetoggle=<F3>
 
 nmap <leader>cft :ClangFormat<CR>
 vmap <leader>cft :ClangFormat<CR>
-nmap <leader>fb :Files ~/workspace/build<CR>
-nmap <leader>ff :Files .<CR>
+nmap <leader>fb :FzfChooseProjectFile<CR>
+nmap <leader>ff :FzfSwitchProject<CR>
 
 let g:vimwiki_list = [{
 			\ 'path': '~/vimwiki',
@@ -168,17 +178,15 @@ map <C-]> <C-]>z<return>
 map gc :call Comment()<CR>
 map gC :call Uncomment()<CR>
 
-" Python formatter keymap
-
-nnoremap <buffer><silent> <c-q> <cmd>call Black()<cr>
-inoremap <buffer><silent> <c-q> <cmd>call Black()<cr>
-
 " Gitgutter
 
 nmap <leader>gn <Plug>(GitGutterNextHunk)
 nmap <leader>gp <Plug>(GitGutterPrevHunk)
 nmap <leader>ga <Plug>(GitGutterStageHunk)
 nmap <leader>gu <Plug>(GitGutterUndoHunk)
+
+" Black formatter
+autocmd BufWritePre *.py execute ':Black'
 
 function! Comment()
 	let ft = &filetype
