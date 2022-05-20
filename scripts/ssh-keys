@@ -2,10 +2,14 @@
 
 KEYS_PATH=~/.ssh/
 
-# TODO: add timeout selection menu with default value
-
+time_in_hour=4
+if [ ! -z "$1" ]
+then
+    time_in_hour=$1
+fi
+time=$(($time_in_hour*60*60))
 for f in $(find $KEYS_PATH -name "id*" ! -name '*.pub')
 do
-    echo "Adding '$f' to the bunch of keys" 
-    ssh-add -t 14400 $f
+    echo "Adding '$f' to the bunch of keys for $time_in_hour hour"
+    ssh-add -t $time $f
 done
