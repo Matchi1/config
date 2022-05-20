@@ -61,7 +61,6 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'folke/trouble.nvim'
 
     Plug 'ThePrimeagen/refactoring.nvim'
-    Plug 'nvim-treesitter/nvim-treesitter'
     Plug 'Chiel92/vim-autoformat'
 
     Plug 'tpope/vim-fugitive'
