@@ -1,6 +1,3 @@
-# ignore all
 *
-
-# except
 !.gitignore
 !plugins.vim
