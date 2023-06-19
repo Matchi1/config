@@ -1,26 +1,28 @@
-set -g -x fish_greeting ''
+if status is-interactive
+    # Commands to run in interactive sessions can go here
+end
 
-# Aliases
-if test -f ~/.config/fish/fish_aliases
+if [ -f ~/.config/fish/fish_aliases ]
     . ~/.config/fish/fish_aliases
 end
 
-set __fish_sdkman_init "$HOME/.sdkman/bin/sdkman-init.sh"
-set __fish_sdkman_noexport_init "$HOME/.config/fisher/github.com/reitzig/sdkman-for-fish/sdkman-noexport-init.sh"
+# Set default editor
+export VISUAL=nvim
+export EDITOR="$VISUAL"
+export PATH="$HOME/.local/bin:$PATH"
+export PATH="$HOME/.local/ideaIU/bin:$PATH"
+export PATH="$HOME/STMicroelectronics/STM32Cube/STM32CubeProgrammer/bin:$PATH"
 
-#>>> conda initialize >>>
-# # !! Contents within this block are managed by 'conda init' !!
-eval /home/chan/anaconda3/bin/conda "shell.fish" "hook" $argv | source
-#   # <<< conda initialize <<<
+# GO PATH
+export PATH="$HOME/go/bin:$PATH"
+export LD_LIBRARY_PATH="/home/linuxbrew/.linuxbrew/lib/"
 
-export EDITOR='nvim'
-export VISUAL='nvim'
-export JAVA_HOME='/home/chan/.sdkman/candidates/java/17-open'
-
-# Guard: SDKMAN! needs to be installed
-if not test -f "$__fish_sdkman_init"
-    exit 0
+function yocto-bitbake
+    bitbake $argv[1]
+    scp -v build/tmp/deploy/ipk/armv7ahf-neon/$argv[1]_* \
+    mathieu.chan@192.168.6.174:$argv[2]
 end
 
-export SDKMAN_DIR="$HOME/.sdkman"
-bash -c 'source "$HOME/.sdkman/bin/sdkman-init.sh"'
+function copy_to_qbox
+    scp -r $argv[1] mathieu.chan@192.168.6.174:/home/mathieu.chan
+end
