@@ -21,7 +21,7 @@ call plug#begin('~/.config/nvim/plugged')
 	Plug 'tpope/vim-surround'
 
 	" Auto Completion (see if necessary)
-	Plug 'ackyshake/VimCompletesMe'
+	Plug 'vim-scripts/VimCompletesMe'
 
 	Plug 'dhruvasagar/vim-table-mode'
 
