@@ -13,9 +13,9 @@ alias la='ls -A'
 alias l='ls -CF'
 
 # multi-monitor
-alias dual='xrandr --output eDP-1 --primary --left-of HDMI-2 --output HDMI-2 \
---auto'
-alias single='xrandr --output HDMI-2 --off'
+alias dual='xrandr --output eDP --primary --left-of DisplayPort-0 \
+--output DisplayPort-0 --mode 2560x1440'
+alias single='xrandr --output DisplayPort-0 --off'
 
 # ctags
 alias ctags='~/ctags/ctags'
@@ -32,8 +32,6 @@ alias gf='git fetch'
 # turn on/off night mode
 
 alias night-mode='runscript night-mode'
-
-alias discord='~/Discord/Discord'
 
 # Debugging
 
@@ -52,7 +50,7 @@ alias FZF="fzf --preview 'bat {-1} --color=always'"
 
 ## SCROT OUTPUT
 
-alias sscrot="scrot -s ~/Images/%b%d_%H%M%S.png"
+alias sscrot="scrot -s ~/Pictures/%b%d_%H%M%S.png"
 
 # Help section
 
@@ -74,3 +72,6 @@ function export_list
     echo '$QRAD       : Compile Qmate USB firmware'
     echo '$ELF_PATH   : elf file path for gdb debugger'
 end
+
+alias bat='batcat'
+alias tg='cowsay stfu'

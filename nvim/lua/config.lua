@@ -3,15 +3,20 @@ vim.api.nvim_create_autocmd({ "BufWritePost" }, {
     require("lint").try_lint()
   end,
 })
-require('lint').linters_by_ft = {
-    python = {'pylint',}
+vim.api.nvim_create_autocmd({ "BufEnter" }, {
+  callback = function()
+    require("lint").try_lint()
+  end,
+})
+require("lint").linters_by_ft = {
+    python = {"pylint",}
 }
 require("todo-comments").setup {
 -- your configuration comes here
 -- or leave it empty to use the default settings
 -- refer to the configuration section below
 }
-require('refactoring').setup({
+require("refactoring").setup({
     -- Remaps for the refactoring operations currently offered by the plugin
     vim.api.nvim_set_keymap(
         "v",
@@ -60,3 +65,9 @@ require('refactoring').setup({
         {noremap = true, silent = true, expr = false}
     )
 })
+
+vim.api.nvim_create_autocmd({ "Filetype" }, {
+  pattern = { "c" },
+  command = "setlocal shiftwidth=2 tabstop=2 softtabstop=2"
+})
+

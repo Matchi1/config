@@ -55,7 +55,7 @@ call plug#begin('~/.config/nvim/plugged')
 
     " python formatter
     Plug 'averms/black-nvim', {'do': ':UpdateRemotePlugins'}
-    Plug 'python/black'
+    Plug 'psf/black', {'tag': '19.10b0'}
 
     Plug 'folke/todo-comments.nvim'
     Plug 'folke/trouble.nvim'

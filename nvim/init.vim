@@ -1,59 +1,31 @@
 let mapleader=" "
 
-source $HOME/.config/nvim/plugged/plugins.vim
-
-let g:python3_host_prog = $HOME . '/.virtualenvs/gateway/bin/python'
+let g:python3_host_prog = '/usr/bin/python3'
 let g:isort_command = 'isort'
 
+source $HOME/.config/nvim/plugged/plugins.vim
+
 lua require("config")
+lua require("options")
 
 " basics
 set nocompatible
 filetype plugin on
 syntax on
-set encoding=utf-8
-set number relativenumber
-set expandtab
-set tabstop=4 shiftwidth=4 softtabstop=4
-" When deleting whitespace at the beginning of a line,
-" delete 1 tab worth of spaces
-set smarttab
-
-autocmd Filetype python setlocal tabstop=4 shiftwidth=4 softtabstop=4
 
 colorscheme gruvbox
-set background=dark
 
-" column settings
-set colorcolumn=80
-set textwidth=80
+set background=light
+
+set colorcolumn=120
+set textwidth=120
 highlight ColorColumn ctermbg=darkgrey guibg=lightgrey
-
-set backup swapfile undofile
-
-" Temporary files location
-set backupdir=~/.cache/nvim/backup,/tmp//
-set directory=~/.cache/nvim/swp,/tmp//
-set undodir=~/.cache/nvim/undo,/tmp//
-
-" enable autocompletion
-set wildmode=longest,list,full
-
-" Indentation
-set autoindent
 
 " Make your code text more readable
 map <leader>g :Goyo \| set linebreak<CR>
 
-" Split
-set splitbelow splitright
-
-" Lightline
-set laststatus=2
-set noshowmode
-
 " Black config
-let g:black_linelength = 80
+let g:black_linelength = 120
 
 " fzf project settings
  
@@ -73,12 +45,12 @@ map <leader><C-E> :Vifm<CR>
 map <C-N> :tabnew<CR>
 set pastetoggle=<F3>
 
+set noeol nofixeol
+
 " Normal mode Mapping key
 
-nmap <leader>cft :ClangFormat<CR>
-vmap <leader>cft :ClangFormat<CR>
-nmap <leader>fb :FzfChooseProjectFile<CR>
-nmap <leader>ff :FzfSwitchProject<CR>
+nmap <leader>ff :GitFiles<CR>
+nmap <leader>fp :FzfSwitchProject<CR>
 
 let g:vimwiki_global_ext = 0
 let g:vimwiki_list = [
@@ -97,7 +69,7 @@ let g:vimwiki_list = [
 set tags=./tags,tags;
 
 " goyo settings
-let g:goyo_width = 80
+let g:goyo_width = 100
 let g:goyo_height = 80
 let g:goyo_linenr = 0
 
